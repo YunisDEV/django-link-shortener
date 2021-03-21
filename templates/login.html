@@ -1,0 +1,10 @@
+{% extends 'modal.html' %}
+{% block form %}
+<form action="{% url 'login' %}" method="POST" class="modal_form login_form">
+    {% csrf_token %}
+    <h1>Login</h1>
+    <input type="text" name="username" placeholder="Username..." />
+    <input type="password" name="password" placeholder="Password..." />
+    <button type="submit">Login</button>
+</form>
+{% endblock form %}

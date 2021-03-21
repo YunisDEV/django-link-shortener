@@ -1,0 +1,124 @@
+@keyframes modalShowBack {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes modalHide {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 20px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.25);
+    display: none;
+    animation: ease 0.5s modalShowBack;
+}
+.modal.show {
+    display: block;
+}
+.modal_body {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 400px;
+    background: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_form input {
+    font-size: larger;
+    outline: none;
+    border: 2.5px solid #ececec;
+    padding: 10px 15px;
+    background: #ececec;
+    color: rgb(37, 37, 37) !important;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all ease 0.3s;
+    display: block;
+    margin: 20px 0;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ececec inset !important;
+    box-shadow: 0 0 0 30px #ececec inset !important;
+}
+.modal_form input:focus {
+    border: 2.5px solid var(--theme-color);
+}
+.modal_form button {
+    margin: 0;
+}
+h1 {
+    font-family: "Montserrat", sans-serif;
+}
+
+.modal_close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: xx-large;
+    cursor: pointer;
+    color: #ccc;
+    font-weight: 900;
+    transition: all ease 0.2s;
+}
+.modal_close:hover {
+    color: rgb(226, 57, 57);
+}
+
+.modal.hide {
+    display: none !important;
+    animation: ease modalHide 0.3s;
+    opacity: 0;
+}
+
+.links_form ul {
+    list-style-type: none;
+    padding: 0;
+    width: 390px;
+    padding-right: 15px;
+    box-sizing: border-box;
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.links_form ul li a {
+    color: var(--theme-color);
+    font-family: "Montserrat", sans-serif;
+    font-size: larger;
+    text-decoration: none;
+}
+.links_form ul li p {
+    color: #8b8b8b;
+    font-family: "Montserrat", sans-serif;
+    font-size: large;
+    text-decoration: none;
+}

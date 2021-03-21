@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <div class="nav">
+        <p class="brand">Kriti<span>Short</span></p>
+        <div class="nav_btns">
+            {% if request.user.is_authenticated %}
+                <button class="sign_btn">Links</button>
+                <button class="logout_btn" data-to="{% url 'logout' %}">Logout</button>
+            {% else %}
+                <button class="sign_btn">Login</button>
+                <button class="sign_btn">Register</button>
+            {% endif %}
+        </div>
+    </div>
+    <div class="ads">
+        <p>Enter link to short</p>
+        <p>↓</p>
+    </div>
+    <form class="inputs" action="{% url "short_link" %}">
+        <input type="text" name="original_link"/>
+        <button type="submit">Short</button>
+    </form>
+    <div class="result hidden">
+        <p class="is_ready_text">Link is ready!</p>
+        <a data-format="{{domain}}{% url 'use_link' link_hash='_l_'%}" href="#"></a>
+    </div>
+</div>
+
+
+{% if request.user.is_authenticated %}
+    {% include 'links.html' with ldata=links_data%} 
+{% else %}
+    {% include 'login.html' %}
+    {% include 'register.html' %}
+{% endif %}
+
+{% endblock %}

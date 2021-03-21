@@ -1,0 +1,13 @@
+{% extends 'modal.html' %} {% block form %}
+<div class="modal_form links_form">
+    <h1>Links</h1>
+    <ul>
+        {% for link in ldata %}
+        <li>
+            <a href="{{domain}}{% url 'use_link' link_hash=link.short_link%}">{{domain}}{% url 'use_link' link_hash=link.short_link%}</a>
+            <p>{{link.original_link}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock form %}
